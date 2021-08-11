@@ -1,22 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<title>Drunken Pong</title>
+    <title>Drunken Pong</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <meta name="author" content="Claire Weber & Ophir Gal" />
     <meta name="description" content="A drunken spin on Pong." />
     <meta name="keywords" content="game, 2D, pong, drunken, silly" />
     <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link type="text/css" rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
     <link type="text/css" rel="stylesheet" href="./style.css">
-    <style> @import url("https://fonts.googleapis.com/css?family=K2D"); </style>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=K2D");
+        @import url("https://fonts.googleapis.com/css?family=Geo");
+    </style>
     <script>
         if (document.location.search.match(/type=embed/gi)) {
             window.parent.postMessage("resize", "*");
@@ -25,13 +29,23 @@
     <script src="./script.js" defer></script>
 </head>
 
-<body translate="no">
-    <div class="title d-flex align-items-center justify-content-center">
-        <h1>Drunken Pong</h1> 
-        <hr/>
-        <!-- <button type="button" class="btn  no-outline btn-link" data-toggle="modal" data-target="#helpModal">
-            Help&nbsp;<img id="help-icon" width="8%" src="static/help_icon.svg"/>
-        </button> -->
+<body translate="no" class="text-white" onkeydown="keyPress(event)">
+    <!-- <h1 class="title d-flex align-items-center justify-content-center">
+        DRUNKEN PONG
+    </h1> -->
+    <div class="container-fluid"></div>
+        <div id="score" class="container-fluid">
+            <div class="row">
+                <div class="col-5 text-right">00</div>
+                <div class="col-2"></div>
+                <div class="col-5 text-left">00</div>
+            </div>
+        </div>
+        <div id="ball"></div>
+        <div id="mid-line"></div>
+        <div id="left-paddle"></div>
+        <div id="right-paddle"></div>
     </div>
 </body>
+
 </html>

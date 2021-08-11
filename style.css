@@ -8,7 +8,50 @@ body {
     width: 100%;
     height: 100%;
     padding: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+}
+
+#ball {
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    width: 1.3vw;
+    height: 1.3vw;
+    transform: rotate(45deg);
+    background-color: white;
+}
+
+#score {
+    font-family: 'Geo';
+    position: absolute;
+    top: -40px;
+    width:  100vw;
+    font-size: 100pt;
+}
+
+#mid-line {
+    position: fixed;
+    left: 50%;
+    width: 1%;
+    height:100vh;
+    background-image: linear-gradient(rgb(255, 255, 255) 45%, rgba(0, 0, 0) 0%);
+    background-size: 10px 50px;
+    background-repeat: repeat-y;
+}
+
+#left-paddle {
+    position: fixed;
+    top: 45%;
+    left: 2%;
+    width: 1.5%;
+    height: 15%;
+    background-color: white;
+}
+
+#right-paddle {
+    position: fixed;
+    top: 45%;
+    right: 2%;
+    width: 1.5%;
+    height: 15%;
+    background-color: white;
 }
