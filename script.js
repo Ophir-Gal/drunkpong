@@ -23,9 +23,13 @@ function resetGameState() {  // TODO: delete this (TO BE IMPLEMENTED BY CLAIRE)
     gameState.ball.x = 0.4
     gameState.ball.y = 0.5
 }
-function nextFrame() {       // TODO: delete this (TO BE IMPLEMENTED BY CLAIRE)
+function nextFrame(playerState) {       // TODO: delete this (TO BE IMPLEMENTED BY CLAIRE)
     gameState.cpuPaddle.y += 0.003
-    gameState.userPaddle.y += 0.003
+    if (playerState === 'UP') {
+        gameState.userPaddle.y += 0.05
+    } else if (playerState === 'DOWN') {
+        gameState.userPaddle.y -= 0.04
+    }
     gameState.ball.x += 0.002
 }
 
