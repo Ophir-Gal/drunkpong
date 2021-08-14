@@ -20,11 +20,13 @@ var gameState = {cpuPaddle: {x: 0.1, y: 0.3}, userPaddle: {x: 0.1, y: 0.3}, ball
 function resetGameState() {  // TODO: delete this (TO BE IMPLEMENTED BY CLAIRE)
     gameState.cpuPaddle.y = 0.3
     gameState.userPaddle.y = 0.3
+    gameState.ball.x = 0.4
+    gameState.ball.y = 0.5
 }
 function nextFrame() {       // TODO: delete this (TO BE IMPLEMENTED BY CLAIRE)
     gameState.cpuPaddle.y += 0.003
     gameState.userPaddle.y += 0.003
-    gameState.ball.x += 0.003
+    gameState.ball.x += 0.002
 }
 
 function keyDown(event) {
@@ -45,19 +47,24 @@ function keyUp(event) {
 function mainLoop() {
     // advance game state to the next frame
     nextFrame(playerState)
+    // update GUI based on updated game state
+    matchGUItoGameState()
     //
     if (false) { // TODO: add flag that indicates whether game should stop/end
         clearInterval(timerID)
     }
-    // update GUI based on updated game state
-    leftPaddle.setAttribute('y', (1 - gameState.cpuPaddle.y) * clientHeight + '%')
-    rightPaddle.setAttribute('y', (1 - gameState.userPaddle.y) * clientHeight + '%')
-    ball.setAttribute('x', gameState.ball.x * clientWidth + '%')
-    ball.setAttribute('y', (1 - gameState.ball.y) * clientHeight + '%')
+}
+
+function matchGUItoGameState(){
+    leftPaddle.setAttribute('y', (1 - gameState.cpuPaddle.y) * 100 + '%')
+    rightPaddle.setAttribute('y', (1 - gameState.userPaddle.y) * 100 + '%')
+    ball.setAttribute('x', gameState.ball.x * 100 + '%')
+    ball.setAttribute('y', (1 - gameState.ball.y) * 100 + '%')
 }
 
 function startNewGame() {
     resetGameState()
+    matchGUItoGameState()
     // start game's main loop
     timerID = setInterval(mainLoop, 33)
 }
