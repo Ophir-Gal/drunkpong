@@ -16,7 +16,7 @@ let leftPaddle = d_select_id('left-paddle')
 let rightPaddle = d_select_id('right-paddle')
 let ball = d_select_id('ball')
 
-var gameState = {cpuPaddle: {x: 0.1, y: 0.3}, userPaddle: {x: 0.1, y: 0.3}, ball: {x: 0.1, y: 0.3}} // TODO: DELETE THIS DUMMY GAME STATE (TO BE IMPLEMENTED BY CLAIRE)
+var gameState = {cpuPaddle: {x: 0.1, y: 0.3}, userPaddle: {x: 0.1, y: 0.3}, ball: {x: 0.4, y: 0.5}} // TODO: DELETE THIS DUMMY GAME STATE (TO BE IMPLEMENTED BY CLAIRE)
 function resetGameState() {  // TODO: delete this (TO BE IMPLEMENTED BY CLAIRE)
     gameState.cpuPaddle.y = 0.3
     gameState.userPaddle.y = 0.3
@@ -24,7 +24,7 @@ function resetGameState() {  // TODO: delete this (TO BE IMPLEMENTED BY CLAIRE)
 function nextFrame() {       // TODO: delete this (TO BE IMPLEMENTED BY CLAIRE)
     gameState.cpuPaddle.y += 0.003
     gameState.userPaddle.y += 0.003
-    gameState.ball.x -= 0.003
+    gameState.ball.x += 0.003
 }
 
 function keyDown(event) {
