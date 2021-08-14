@@ -8,7 +8,7 @@
     <meta name="author" content="Claire Weber & Ophir Gal" />
     <meta name="description" content="A drunken spin on Pong." />
     <meta name="keywords" content="game, 2D, pong, drunken, silly" />
-    <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link type="text/css" rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -29,23 +29,26 @@
     <script src="./script.js" defer></script>
 </head>
 
-<body translate="no" class="text-white" onkeydown="keyPress(event)">
+<body translate="no" class="text-white" onkeydown="keyDown(event)" onkeyup="keyUp(event)">
     <!-- <h1 class="title d-flex align-items-center justify-content-center">
         DRUNKEN PONG
     </h1> -->
-    <div class="container-fluid"></div>
-        <div id="score" class="container-fluid">
-            <div class="row">
-                <div class="col-5 text-right">00</div>
-                <div class="col-2"></div>
-                <div class="col-5 text-left">00</div>
-            </div>
+    <div id="mid-line"></div>
+    <div id="score" class="container-fluid">
+        <div class="row">
+            <div class="col-5 text-right">00</div>
+            <div class="col-2"></div>
+            <div class="col-5 text-left">00</div>
         </div>
-        <div id="ball"></div>
-        <div id="mid-line"></div>
-        <div id="left-paddle"></div>
-        <div id="right-paddle"></div>
     </div>
+    
+    <!-- SVGs -->
+    <svg xmlns="http://www.w3.org/2000/svg" onload="" width="100%" height="100%">
+        <rect id="ball" width="1.3vw" height="1.3vw" x="40%" y="50%"/>
+        <rect id="left-paddle" class="paddle" width="1.5%" height="15%" x="2%" y="42.5%"/>
+        <rect id="right-paddle" class="paddle" width="1.5%" height="15%" x="96.5%" y="42.5%"/>
+    </svg>
+    
 </body>
 
 </html>
