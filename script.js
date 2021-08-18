@@ -7,21 +7,22 @@ const UP_KEY = 38;
 const RIGHT_KEY = 39;
 const DOWN_KEY = 40;
 const ESC_KEY = 27;
-
+const PADDLE_HEIGHT = 0.15;
 var playerState = 'NOTHING'
 var timerID = null;
 let clientWidth = window.innerWidth || document.body.clientWidth
 let clientHeight = window.innerHeight || document.body.clientHeight
 let leftPaddle = d_select_id('left-paddle')
 let rightPaddle = d_select_id('right-paddle')
-let ball = d_select_id('ball')
+let ballTag = d_select_id('ball')
 
-var gameState = {cpuPaddle: {x: 0.1, y: 0.3}, userPaddle: {x: 0.1, y: 0.3}, ball: {x: 0.4, y: 0.5}} // TODO: DELETE THIS DUMMY GAME STATE (TO BE IMPLEMENTED BY CLAIRE)
+/*
+var gameState = {cpuPaddle: {x: 0.1, y: 0.3}, userPaddle: {x: 0.1, y: 0.3}, ballTag: {x: 0.4, y: 0.5}} // TODO: DELETE THIS DUMMY GAME STATE (TO BE IMPLEMENTED BY CLAIRE)
 function resetGameState() {  // TODO: delete this (TO BE IMPLEMENTED BY CLAIRE)
     gameState.cpuPaddle.y = 0.3
     gameState.userPaddle.y = 0.3
-    gameState.ball.x = 0.4
-    gameState.ball.y = 0.5
+    gameState.ballTag.x = 0.4
+    gameState.ballTag.y = 0.5
 }
 function nextFrame(playerState) {       // TODO: delete this (TO BE IMPLEMENTED BY CLAIRE)
     gameState.cpuPaddle.y += 0.003
@@ -30,8 +31,9 @@ function nextFrame(playerState) {       // TODO: delete this (TO BE IMPLEMENTED 
     } else if (playerState === 'DOWN') {
         gameState.userPaddle.y -= 0.04
     }
-    gameState.ball.x += 0.002
+    gameState.ballTag.x += 0.002
 }
+*/
 
 function keyDown(event) {
     switch (event.which) {
@@ -60,10 +62,10 @@ function mainLoop() {
 }
 
 function matchGUItoGameState(){
-    leftPaddle.setAttribute('y', (1 - gameState.cpuPaddle.y) * 100 + '%')
-    rightPaddle.setAttribute('y', (1 - gameState.userPaddle.y) * 100 + '%')
-    ball.setAttribute('x', gameState.ball.x * 100 + '%')
-    ball.setAttribute('y', (1 - gameState.ball.y) * 100 + '%')
+    leftPaddle.setAttribute('y', (1 - gameState.cpuPaddle.y - PADDLE_HEIGHT) * 100 + '%')
+    rightPaddle.setAttribute('y', (1 - gameState.userPaddle.y - PADDLE_HEIGHT) * 100 + '%')
+    ballTag.setAttribute('x', gameState.ball.x * 100 + '%')
+    ballTag.setAttribute('y', (1 - gameState.ball.y) * 100 + '%')
 }
 
 function startNewGame() {
